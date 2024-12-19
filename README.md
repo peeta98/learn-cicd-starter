@@ -1,4 +1,4 @@
-![Status of ci workflow](https://github.com/peeta98/learn-cicd-starter/actions/workflows/ci.yml/badge.svg)
+![Status of ci workflow](https://github.com/peeta98/learn-cicd-starter/actions/workflows/ci.yml/badge.svg?event=pull_request)
 
 # learn-cicd-starter (Notely)
 
