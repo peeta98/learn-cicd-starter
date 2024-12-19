@@ -11,14 +11,14 @@ func TestGetApiKey(t *testing.T) {
 	// 1) Authorization headers don't exist
 	// 2) Malformed authorization header
 	// 3) Happy path, returns apiKey
-	tests := map[string]struct{
+	tests := map[string]struct {
 		input http.Header
-		want string
-		err error
+		want  string
+		err   error
 	}{
 		"Unexistent Authorization header": {input: http.Header{}, want: "", err: ErrNoAuthHeaderIncluded},
-		"Malformed Authorization header": {input: http.Header{"Authorization": []string{"malformed secret"}}, want:"", err: errors.New("malformed authorization header")},
-		"Returns ApiKey": {input: http.Header{"Authorization": []string{"ApiKey secret"}}, want: "secret", err: nil},
+		"Malformed Authorization header":  {input: http.Header{"Authorization": []string{"malformed secret"}}, want: "", err: errors.New("malformed authorization header")},
+		"Returns ApiKey":                  {input: http.Header{"Authorization": []string{"ApiKey secret"}}, want: "secret", err: nil},
 	}
 
 	for name, tc := range tests {
